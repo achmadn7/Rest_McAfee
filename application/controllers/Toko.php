@@ -11,13 +11,13 @@ class toko extends REST_Controller {
     // show data toko
     function index_get() {
         $id = $this->get('id_toko');
-        if ($ktp == '') {
-            $user = $this->db->get('toko')->result();
+        if ($id == '') {
+            $toko = $this->db->get('toko')->result();
         } else {
             $this->db->where('id_toko', $id);
             $user = $this->db->get('toko')->result();
         }
-        $this->response($user, 200);
+        $this->response($toko, 200);
     }
     // insert new data to toko
     function index_post() {
