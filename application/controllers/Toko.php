@@ -15,7 +15,7 @@ class toko extends REST_Controller {
             $toko = $this->db->get('toko')->result();
         } else {
             $this->db->where('id_toko', $id);
-            $user = $this->db->get('toko')->result();
+            $toko = $this->db->get('toko')->result();
         }
         $this->response($toko, 200);
     }
@@ -48,11 +48,10 @@ class toko extends REST_Controller {
         }
       }
     }
-
     // update data toko
     function index_put() {
       $id         = $this->input->post('id_toko');
-      if ($ktp == '') {
+      if ($id == '') {
         $this->response(array('status' => 'fail','message' => 'form wajib diisi', 502));
       }
       else {
@@ -86,5 +85,4 @@ class toko extends REST_Controller {
         }
       }
     }
-
 }
